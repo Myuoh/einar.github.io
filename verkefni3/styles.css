@@ -1,0 +1,28 @@
+.grid-container {
+    display: grid;
+    padding: 10px;
+    grid-gap: 10px;
+    border: 1px solid black;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 18px;
+}
+.col-2 > div{
+    grid-template-columns: auto auto;
+}
+.col-3 > div{
+    grid-template-areas: 
+    'd1 d2 d3'
+    ;
+}
+.col-4 > div{
+    grid-template-areas: 
+    'd1 d2 d3 d4'
+    'd1 d2 d3 d4'
+    ;
+}
