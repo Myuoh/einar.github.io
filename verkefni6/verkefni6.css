@@ -1,0 +1,212 @@
+*{margin: 0; padding: 0;}
+html{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+
+}
+@media only screen and (min-width: 80em) {
+    body{
+    background: linear-gradient(to bottom, blue 50%, cyan 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;    
+    }
+    img{
+        max-width: 100%;
+        object-fit: fill;
+    }
+
+    h1{
+        color: orange;
+        text-shadow: 3px 3px orangered;
+        border: black;
+    }
+    header{
+        text-align: center;
+        font-size: 2em;
+        background-color: maroon;
+    }
+
+    .text{
+        color: wheat;
+    }
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 5px;
+    }
+    .main{
+        background-color: rgba(234, 122, 0, 0.3);
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    .imgage{
+        width: 100%;
+        height: 94%; 
+    }
+
+    .container{
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-top: 6em;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        font-size: 18px;
+    }
+
+    .yeb{
+        background-color: rgba(234, 122, 87, 0.7);
+        margin: 1em;
+        text-align: center;
+    }
+
+}
+
+@media only screen and (min-width: 48em) and (max-width: 80em) {
+    body{
+        background: linear-gradient(to bottom, blue 50%, cyan 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;    
+    }
+    img{
+        max-width: 100%;
+        object-fit: fill;
+    }
+    
+    h1{
+        color: orange;
+        text-shadow: 3px 3px orangered;
+        border: black;
+    }
+    header{
+        text-align: center;
+        font-size: 2em;
+        background-color: maroon;
+    }
+    .text{
+        color: wheat;
+        }
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 5px;
+    }
+    .main{
+        background-color: rgba(234, 122, 0, 0.3);
+    }
+    .imgage{
+        width: 100%;
+        height: 92%; 
+    }
+    
+    .container{
+        margin-top: 6em;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        font-size: 18px;
+    }
+    .yeb{
+        background-color: rgba(234, 122, 87, 0.7);
+        margin: 0.5em;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 30em) and (max-width: 48em) {
+    body{
+        background: linear-gradient(to bottom, blue 50%, cyan 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;    
+    }
+    img{
+         max-width: 100%;
+        object-fit: fill;
+    }
+    h1{
+        color: orange;
+        text-shadow: 3px 3px orangered;
+        border: black;
+    }
+    header{
+        text-align: center;
+        font-size: 2em;
+        background-color: maroon;
+    }
+    .text{
+        color: wheat;
+    }
+    main{
+        padding-top: 1em;
+        display: grid;
+        grid-template-columns: 1fr ;
+        padding: 5px;
+    }
+    .main{
+        background-color: rgba(234, 122, 0, 0.3);
+    }
+    .imgage{
+        width: 100%;
+        height: 90%; 
+    }
+    .container{
+        margin-top: 6em;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-size: 18px;
+    }
+    .yeb{
+        height: 320px;
+        background-color: rgba(234, 122, 87, 0.7);
+        margin: 1em;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 0em) and (max-width: 30em) {
+    body{
+        background: linear-gradient(to bottom, blue 50%, cyan 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;    
+    }
+    img{
+         max-width: 100%;
+        object-fit: fill;
+    }
+    h1{
+        color: orange;
+        text-shadow: 3px 3px orangered;
+        border: black;
+    }
+    header{
+        text-align: center;
+        font-size: 2em;
+        background-color: maroon;
+    }
+    .text{
+        color: wheat;
+    }
+    main{
+        display: grid;
+        grid-template-columns: 1fr ;
+        padding: 5px;
+    }
+    .main{
+        background-color: rgba(234, 122, 0, 0.3);
+    }
+    .imgage{
+        width: 100%;
+        height: 92%; 
+    }
+    .container{
+        margin-top: 6em;
+        display: grid;
+        grid-template-columns: 1fr;
+        font-size: 18px;
+    }
+    .yeb{
+        background-color: rgba(234, 122, 87, 0.7);
+        margin: 1em;
+        text-align: center;
+    }
+}
