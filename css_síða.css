@@ -42,6 +42,12 @@ header{
     grid-template-columns: auto auto;
 }
 #litlet{
+    margin-top: 15%;
+    margin-bottom: 15%;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-bottom: 5em;
+    padding-top: 2em;
     font-family: 'Bitter', serif;
     margin-top: 5em;
     background-color: rgba(100, 10, 5, 0.4);
