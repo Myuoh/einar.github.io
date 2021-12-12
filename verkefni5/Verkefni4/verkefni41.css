@@ -1,0 +1,107 @@
+*{
+    box-sizing: border-box;
+}
+.jos{
+    border: 1px solid black;
+    text-align: center;
+}
+@media only screen and (min-width: 0em) and (max-width: 37.5em){
+    .grid-container{
+        display: grid;
+
+    }
+    .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+    }
+    .col-2 > div{grid-template-columns:auto;
+    }
+
+    .col-3 > div{grid-template-columns: auto;
+    }
+
+    .col-4 > div{grid-template-columns: auto;
+    }
+    .clearfix{
+        clear: both;
+    }
+}
+
+
+@media only screen and (min-width:37.5em) and (max-width: 48em){
+    .grid-container{
+        display: grid;
+    }
+    .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);;
+    font-size: 18px;
+    }
+    .col-2 > div{grid-template-columns:auto auto;
+    }
+
+    .col-3 > div{grid-template-columns: auto auto;
+    }
+
+    .col-4 > div{grid-template-columns: auto auto;
+    }
+    .clearfix{
+        clear: both;
+    }
+}
+
+@media only screen and (min-width: 48em) and (max-width: 60em){
+    .grid-container{
+        display: grid;
+    }
+    .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);;
+    font-size: 18px;
+    }
+    .col-2 > div{grid-template-columns:auto auto;
+    }
+
+    .col-3 > div{grid-template-columns: auto auto auto;
+    }
+
+    .col-4 > div{grid-template-columns: auto auto auto auto;
+    }
+    .clearfix{
+        clear: both;
+    }
+}
+
+@media only screen and (min-width: 60em){
+    .grid-container {
+        display: grid;
+        padding: 10px;
+        grid-gap: 10px;
+        border: 1px solid black;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .grid-container > div {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 20px 0;
+        font-size: 18px;
+    }
+    .col-2 > div{
+        grid-template-columns: auto auto;
+    }
+    .col-3 > div{
+        grid-template-columns:auto auto auto;
+    }
+    .col-4 > div{
+        grid-template-columns: auto auto auto auto;
+    }
+    .jos{
+        border: 1px solid black;
+        text-align: center;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+header{grid-area: h;}
+.virkur{
+    color: green;
+}

@@ -1,0 +1,49 @@
+p {
+    display: block;
+}
+
+.fyrst{
+    color: black;
+    border: 2px solid green;
+    
+}
+
+.annad{
+    color: red;
+    border: 2px solid green;
+}
+
+.thridja{
+    color: blue;
+    border: 5px dashed blue;
+    padding: 20px;
+}
+
+div{
+    border: 4px solid red;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+.blok {
+    display: block;
+    padding: 1em;
+    margin: 1em;
+    border: 3px dashed green;
+}
+.inlin {
+    display: inline;
+    padding: 1em;
+    margin: 1em;
+    border: 3px dashed blue;
+}
+.yeb {
+    color: red;
+}
+
+.inlinblok{
+    display: inline-block;
+    padding: 1em;
+    margin: 1em;
+    border: 3px dashed red;
+}

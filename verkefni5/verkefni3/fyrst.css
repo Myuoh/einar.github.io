@@ -1,0 +1,71 @@
+.containt{
+    border: 1px solid black;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr 0.5fr 3fr 0.5fr;
+    grid-template-areas: 
+    'h h h h'
+    'm m m m'
+    'f f f f';
+}
+.topnav{
+    grid-area: n;
+    border: 1px solid black;
+}
+.topnav > ul{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    list-style-type: none;
+}
+.topmenu{grid-area: ten;}
+.header{
+    grid-area: h;
+    border: 1px solid black;
+    text-align: center;
+    padding-bottom: 5px;
+    font-family: lobster;
+}
+.main{
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-area: m;
+    grid-template-areas: 
+    'a1 a2 as1'
+    'a1 a2 as2'
+    ;
+}
+.footer{
+    grid-area: f;
+    border: 1px solid black;
+}
+blockquote{
+    border: 1px solid black;
+}
+.footer{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+}
+.art1{
+    grid-area: a1;
+    border: 1px solid black;
+}
+.art2{
+    grid-area: a2;
+    border: 1px solid black;
+}
+.as1{
+    grid-area: as1;
+    border: 1px solid black;
+}
+.as2{
+    grid-area: as2;
+    border: 1px solid black;
+}
+html{
+    background-color: white;
+}
+.virkur{
+    color: darkcyan;
+}

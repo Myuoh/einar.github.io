@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 *{
     box-sizing: border-box;
+    font-family: Bebas Neue;
 }
 @media screen and (min-width: 60em){
 html {
