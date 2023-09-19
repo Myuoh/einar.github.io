@@ -1,4 +1,4 @@
-*{margin: 0; padding: 0;}
+/*{margin: 0; padding: 0;}
 body{
     background: linear-gradient(#e66465, #a5e591);
 }
@@ -73,4 +73,17 @@ footer{
     font-family: 'Bitter', serif;
     display: grid;
     grid-template-areas: "m ve map";
+}*/
+* {
+    padding: 0;
+    margin: 0;
+    background-color: #000000;
+}
+
+
+
+canvas{
+    display: block;
+    border: 1px solid black;
+    
 }
