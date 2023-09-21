@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="tet.css">
+    <link rel="stylesheet" href="css_síða.css">
     <title>poggi</title>
     </head>
 <body>
@@ -430,6 +430,14 @@
              right = false;
              break;
     }});
+    function fullscren() {
+        if(!document.fullscreenElement){
+            canvas.requestFullscreen().catch(err =>{
+                alert(`haha lol, ímynda sér að ekki geta opnað fullscreen vega ${err.message}`)
+            });
+        } else{document.exitFullscreen();}
+    }
+    window.addEventListener('click',fullscren)
     window.addEventListener('resize', function(){
        width = canvas.width = window.innerWidth-4;
        height = canvas.height = window.innerHeight-5;
