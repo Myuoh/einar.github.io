@@ -438,6 +438,25 @@
     window.addEventListener('fullscreenchange',()=>{
       screen.orientation.lock('landscape-primary')
     })
+    window.addEventListener('devicemotion', (e) => {
+      let bonkersX = e.acceleration.x
+      let bonkersY = e.acceleration.y
+      switch (true) {
+         case bonkersX > 0:
+            right=true;
+            break;
+         case bonkersX < 0:
+            left=true;
+            break;
+         case bonkersY > 0:
+            up = true;
+            break;
+         case bonkersY < 0:
+            down = true;
+            break; 
+      }
+      
+    })
     window.addEventListener('resize', function(){
        width = canvas.width = window.innerWidth-4;
        height = canvas.height = window.innerHeight-5;
