@@ -264,6 +264,7 @@
     let pellets = [];
     let normalPills = [];
     function init(){
+      screen.orientation.lock('landscape-primary')
       if (starte){
       score = 0
       pacdude.lives=3
@@ -374,7 +375,7 @@
        pacdude.draw();
       } else {
          ctx.fillStyle = 'white'; 
-       ctx.font = '48px Arial'; 
+       ctx.font = '29px Arial'; 
        ctx.fillText("ýttu á skjáinn til að spila", 6,height/2)
       }
        pacdude.update();
@@ -428,7 +429,6 @@
     }});
     function fullscren() {
       starte = true;
-      screen.orientation.lock('landscape')
         if(!document.fullscreenElement){
             canvas.requestFullscreen().catch(err =>{
                 alert(`haha lol, ímynda sér að ekki geta opnað fullscreen vega ${err.message}`)
