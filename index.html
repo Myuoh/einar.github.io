@@ -194,7 +194,8 @@
                 if (distance < this.size + ghost.size) {
                    if (!pacdude.killmonger) {
                       if (!pacdude.isInvincible) {
-                        //this.hurt.play();
+                        window.navigator.vibrate(200);
+                        window.navigator.vibrate([200]);
                         allIdoIsPlay(this.hurt);
                         pacdude.lives--;
                          pacdude.activateInvincibility();
