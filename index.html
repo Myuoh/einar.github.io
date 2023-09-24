@@ -19,7 +19,10 @@
     let left = false;
     let right = false;
     let starte = false;
-    
+    function allIdoIsPlay(sound){
+      let audioClone = sound.cloneNode();
+      audioClone.play();
+    }
     function random(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;}
     
@@ -90,6 +93,15 @@
           this.killTimer = 0;
           this.isinvincible = false;
           this.invincibilityTimer = 0; 
+          this.boom = new Audio();
+          this.boom.src = 'deltarune-explosion.mp3';
+          this.megaFart = new Audio();
+          this.megaFart.src = 'i-have-the-power.mp3';
+          this.chomp = new Audio();
+          this.chomp.src = 'chomp-1.mp3'
+          this.hurt = new Audio();
+          this.hurt.src = 'hurt.mp3'
+          this.audio = new Audio();
        }
        draw(){
          
@@ -106,6 +118,7 @@
             ctx.closePath();
             ctx.restore()
        }
+
        update() {
           if ((this.x + this.size) >= width) {
              this.x=width-60;
@@ -163,6 +176,7 @@
     
                 if (distance < this.size + pellet.size) {
                    pellet.ate = true;
+                   allIdoIsPlay(this.megaFart);
                    this.activatePowerMode();
                    pellet.isVisible = false;
                 }
@@ -180,7 +194,9 @@
                 if (distance < this.size + ghost.size) {
                    if (!pacdude.killmonger) {
                       if (!pacdude.isInvincible) {
-                         pacdude.lives--;
+                        //this.hurt.play();
+                        allIdoIsPlay(this.hurt);
+                        pacdude.lives--;
                          pacdude.activateInvincibility();
                       }
                       if (pacdude.lives == 0) {
@@ -188,7 +204,8 @@
                          location.reload();
                       }
                    } else {
-                      ghost.ate = true;
+                     allIdoIsPlay(this.boom);
+                     ghost.ate = true;
                    }
                 }
              }
@@ -201,6 +218,7 @@
                 const dy = this.y - dot.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 if (distance < this.size + dot.size) {
+                  allIdoIsPlay(this.chomp)
                    dot.ate = true;
                    score++;
                 }
