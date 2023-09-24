@@ -439,7 +439,7 @@
       screen.orientation.lock('landscape-primary')
     })
     window.addEventListener('devicemotion', (e) => {
-      let bonkersX = e.acceleration.x
+      let bonkersX = e.acceleration.z
       let bonkersY = e.acceleration.y
       switch (true) {
          case bonkersX > 0:
