@@ -18,6 +18,7 @@
     let down = false;
     let left = false;
     let right = false;
+    let starte = false;
     
     function random(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;}
@@ -73,21 +74,7 @@
        clearFlashInterval() {
           clearInterval(this.flashTimer);
        }
-        collisionDetect() {
-          if (this !== pacdude) {
-            const dx = this.x - pacdude.x;
-            const dy = this.y - pacdude.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < this.size + pacdude.size) {
-              if (!this.isInvincible) {
-                console.log("Pacman ate a pellet!");
-                this.ate = true;
-                this.pelletInvincibility();
-                pacdude.activatePowerMode();
-              }
-            }
-          }
-        }
+        
     }
     
     class Pacdude {
@@ -105,6 +92,7 @@
           this.invincibilityTimer = 0; 
        }
        draw(){
+         
           const ang = Math.PI / 180;
           ctx.save();
             ctx.translate(this.x,this.y);
@@ -196,6 +184,7 @@
                          pacdude.activateInvincibility();
                       }
                       if (pacdude.lives == 0) {
+                        alert("misstir öll lífin")
                          location.reload();
                       }
                    } else {
@@ -275,6 +264,7 @@
     let pellets = [];
     let normalPills = [];
     function init(){
+      if (starte){
       score = 0
       pacdude.lives=3
        normalPills = [];
@@ -284,7 +274,7 @@
           for (let i = 0; i < numdots; i++) {
              const x = random(10, width-10);
              const y = random(10, height-10);
-             const size = 2; // Adjust the size as needed
+             const size = 2;
              let ate = false;
              normalPills.push({x, y, size, ate}); 
           }
@@ -354,8 +344,8 @@
     );
     pellets.push(pellet4);
     }
+   }
     function loop() {
-    
        ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
        ctx.fillRect(0, 0,  width, height);
        for (const ghost of ghosts) {
@@ -380,7 +370,13 @@
              ctx.fill();
              ctx.closePath();}
        }
+       if (starte){
        pacdude.draw();
+      } else {
+         ctx.fillStyle = 'white'; 
+       ctx.font = '48px Arial'; 
+       ctx.fillText("ýttu á skjáinn til að spila", width/3,height/2)
+      }
        pacdude.update();
        pacdude.collisionDetect();
        ctx.fillStyle = 'white'; 
@@ -431,19 +427,21 @@
              break;
     }});
     function fullscren() {
+      starte = true;
         if(!document.fullscreenElement){
             canvas.requestFullscreen().catch(err =>{
                 alert(`haha lol, ímynda sér að ekki geta opnað fullscreen vega ${err.message}`)
             });
-        } //else{document.exitFullscreen();}
+        } 
     }
-    
+    screen.orientation.lock('landscape')
     window.addEventListener('click',fullscren)
     window.addEventListener('resize', function(){
        width = canvas.width = window.innerWidth-4;
        height = canvas.height = window.innerHeight-5;
        init();
     })
-    init();</script>
+    init();
+    </script>
 </body>
 </html>
