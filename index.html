@@ -375,7 +375,7 @@
       } else {
          ctx.fillStyle = 'white'; 
        ctx.font = '48px Arial'; 
-       ctx.fillText("ýttu á skjáinn til að spila", width/3,height/2)
+       ctx.fillText("ýttu á skjáinn til að spila", 6,height/2)
       }
        pacdude.update();
        pacdude.collisionDetect();
@@ -428,13 +428,13 @@
     }});
     function fullscren() {
       starte = true;
+      screen.orientation.lock('landscape')
         if(!document.fullscreenElement){
             canvas.requestFullscreen().catch(err =>{
                 alert(`haha lol, ímynda sér að ekki geta opnað fullscreen vega ${err.message}`)
             });
         } 
     }
-    screen.orientation.lock('landscape')
     window.addEventListener('click',fullscren)
     window.addEventListener('resize', function(){
        width = canvas.width = window.innerWidth-4;
