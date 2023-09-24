@@ -264,7 +264,6 @@
     let pellets = [];
     let normalPills = [];
     function init(){
-      screen.orientation.lock('landscape-primary')
       if (starte){
       score = 0
       pacdude.lives=3
@@ -436,6 +435,9 @@
         } 
     }
     window.addEventListener('click',fullscren)
+    window.addEventListener('fullscreenchange',()=>{
+      screen.orientation.lock('landscape-primary')
+    })
     window.addEventListener('resize', function(){
        width = canvas.width = window.innerWidth-4;
        height = canvas.height = window.innerHeight-5;
