@@ -474,7 +474,8 @@
        height = canvas.height = window.innerHeight-5;
        init();
     })
-    let touchStartX = 0;
+    
+let touchStartX = 0;
 let touchStartY = 0;
 let touchEndX = 0;
 let touchEndY = 0;
@@ -483,6 +484,10 @@ let touchEndY = 0;
 function handleTouchStart(e) {
   touchStartX = e.touches[0].clientX;
   touchStartY = e.touches[0].clientY;
+  right=false;
+  left=false;
+  up=false;
+  down=false;
 }
 
 // Function to handle touch end event
@@ -519,47 +524,10 @@ function handleTouchEnd(e) {
   }
 }
 
-// Add touch event listeners
+
 window.addEventListener('touchstart', handleTouchStart);
 window.addEventListener('touchend', handleTouchEnd);
-
-// Add keyboard event listeners (similar to your existing code)
-window.addEventListener('keydown', (e) => {
-  let key = e.key.toLowerCase();
-  switch (key) {
-    case 'w':
-      up = true;
-      break;
-    case 's':
-      down = true;
-      break;
-    case 'a':
-      left = true;
-      break;
-    case 'd':
-      right = true;
-      break;
-  }
-});
-
-window.addEventListener('keyup', (e) => {
-  let key = e.key.toLowerCase();
-  switch (key) {
-    case 'w':
-      up = false;
-      break;
-    case 's':
-      down = false;
-      break;
-    case 'a':
-      left = false;
-      break;
-    case 'd':
-      right = false;
-      break;
-  }
-});
-    loop();
-    </script>
+loop();
+</script>
 </body>
 </html>
