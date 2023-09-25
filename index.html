@@ -8,7 +8,6 @@
     </head>
 <body>
     <canvas ></canvas>
-<!--cript src="testapp.js"></script-->
 <script>const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth-4;
@@ -41,7 +40,7 @@
     function blue() {
        return `rgb(${0},${0},${255})`
     }
-    
+
     class Pellet {
        constructor(x,y,size){
           this.x = x;
@@ -79,7 +78,10 @@
        }
         
     }
-    
+    function winL() {
+      alert('vannst lol');
+      location.reload();
+    }
     class Pacdude {
        constructor(x,y,velX,velY,size){
           this.x = x;
@@ -102,7 +104,15 @@
           this.hurt = new Audio();
           this.hurt.src = 'hurt.mp3'
           this.audio = new Audio();
+          this.winsound = new Audio();
+          this.winsound.src = 'all we do is spise emil (remastered 2022).mp3'
        }
+      win(){
+         allIdoIsPlay(this.winsound);
+         setTimeout(()=>{
+            winL();
+         },100)
+      }
        draw(){
          
           const ang = Math.PI / 180;
@@ -224,9 +234,9 @@
                    score++;
                 }
                 if (score === 50){
-                  
-                  alert("vannst");
-                  location.reload();
+                  this.win();
+                  /*alert("vannst");
+                  location.reload();*/
                 }
              }
           }
@@ -405,7 +415,7 @@
        ctx.fillText('líf: ' + pacdude.lives, 80, 50)
        requestAnimationFrame(loop);
     };
-    window.addEventListener("load", loop);
+    window.addEventListener("load", init);
     window.addEventListener('keydown', (e) => {
        let key = e.key
        switch(key) {
@@ -458,32 +468,98 @@
     window.addEventListener('fullscreenchange',()=>{
       screen.orientation.lock('landscape-primary')
     })
-    window.addEventListener('devicemotion', (e) => {
-      let bonkersX = e.acceleration.z
-      let bonkersY = e.acceleration.y
-      switch (true) {
-         case bonkersX > 0:
-            right=true;
-            break;
-         case bonkersX < 0:
-            left=true;
-            break;
-         case bonkersY > 0:
-            up = true;
-            break;
-         case bonkersY < 0:
-            down = true;
-            break;
-            //pogger
-      }
-      
-    })
+   
     window.addEventListener('resize', function(){
        width = canvas.width = window.innerWidth-4;
        height = canvas.height = window.innerHeight-5;
        init();
     })
-    init();
+    let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+
+// Function to handle touch start event
+function handleTouchStart(e) {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}
+
+// Function to handle touch end event
+function handleTouchEnd(e) {
+  touchEndX = e.changedTouches[0].clientX;
+  touchEndY = e.changedTouches[0].clientY;
+
+  // Calculate the direction based on the touch start and end positions
+  let deltaX = touchEndX - touchStartX;
+  let deltaY = touchEndY - touchStartY;
+
+  if (Math.abs(deltaX) > Math.abs(deltaY)) {
+    // Horizontal swipe
+    if (deltaX > 0) {
+      // Right swipe
+      right = true;
+      left = false;
+    } else {
+      // Left swipe
+      left = true;
+      right = false;
+    }
+  } else {
+    // Vertical swipe
+    if (deltaY > 0) {
+      // Down swipe
+      down = true;
+      up = false;
+    } else {
+      // Up swipe
+      up = true;
+      down = false;
+    }
+  }
+}
+
+// Add touch event listeners
+window.addEventListener('touchstart', handleTouchStart);
+window.addEventListener('touchend', handleTouchEnd);
+
+// Add keyboard event listeners (similar to your existing code)
+window.addEventListener('keydown', (e) => {
+  let key = e.key.toLowerCase();
+  switch (key) {
+    case 'w':
+      up = true;
+      break;
+    case 's':
+      down = true;
+      break;
+    case 'a':
+      left = true;
+      break;
+    case 'd':
+      right = true;
+      break;
+  }
+});
+
+window.addEventListener('keyup', (e) => {
+  let key = e.key.toLowerCase();
+  switch (key) {
+    case 'w':
+      up = false;
+      break;
+    case 's':
+      down = false;
+      break;
+    case 'a':
+      left = false;
+      break;
+    case 'd':
+      right = false;
+      break;
+  }
+});
+    loop();
     </script>
 </body>
 </html>
