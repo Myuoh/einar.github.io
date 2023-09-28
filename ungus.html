@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pogginkaupalisti</title>
+</head>
+<body style="background-color: #013958; text-align: center;">
+    <h1 style="color: wheat;">Shooping list <span id="teljari"></span></h1>
+    <ul id="list" style="list-style-type: none; color: #ecc3c3; font-size: 24px;"></ul>
+    <h2 id="totalverd" style="color: #c79f9f;">Heildar verð er: </h2>
+    <form id="new-form">
+        <input type="text" id="item-in" required placeholder="hlutur" style="background-color: #fcf4e9;;"><br>
+        <input type="number" id="price-in" required min="0" placeholder="verð" style="background-color: #e0f2fa;"><br>
+        <button type="submit">Add Item</button>
+    </form>
+    <h2 style="text-align: center; color: #e29393;">Ýttu á hlutina til að eyða</h2>
+    <script>
+        const storedShoppingList = localStorage.getItem("shoppingList");
+        const shoppingList = storedShoppingList ? JSON.parse(storedShoppingList) : {
+            items: [
+                { name: "pizza", price: 850 },
+                { name: "t-shirt", price: 3000 },
+                { name: "bounty", price: 150 },
+                { name: "coke", price: 250 }
+            ],
+            total: 0
+        };
+        localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+        window.addEventListener("click", listTotal);
+
+        function listTotal() {
+            let total = 0;
+            const list = document.querySelector("#list");
+            const what = document.querySelector("#totalverd")
+
+            while (list.firstChild) {
+                list.removeChild(list.firstChild);
+            }
+            if (shoppingList.items.length > 0){
+            for (let i = 0; i < shoppingList.items.length; i++) {
+                const listItem = shoppingList.items[i];
+                listItem.id = i;
+                total += listItem.price;
+
+                const li = document.createElement("li");
+                li.textContent = `${listItem.name} ${listItem.price}`;
+                li.setAttribute("data-id", i);
+                list.appendChild(li);
+                
+                what.textContent = "heildarverð er " + total +"kr."
+
+                li.addEventListener("click", () => {
+                    const itemId = li.getAttribute("data-id");
+                    shoppingList.items.splice(itemId, 1); 
+                    listTotal();
+                });
+            } 
+        } else {
+            total = 0
+            what.textContent = "heildarverð er " + total +"kr."
+        }
+        }
+
+        const form = document.querySelector("#new-form");
+        const inp1 = document.querySelector("#item-in");
+        const inp2 = document.querySelector("#price-in");
+
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+
+            const listItem = {};
+            listItem.name = inp1.value;
+            listItem.price = Number(inp2.value);
+            shoppingList.items.push(listItem);
+
+            inp1.value = "";
+            inp2.value = "";
+
+            listTotal(); 
+        });
+
+        listTotal();
+    </script>
+</body>
+</html>
