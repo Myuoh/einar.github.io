@@ -15,6 +15,7 @@
         <button type="submit">Add Item</button>
     </form>
     <h2 style="text-align: center; color: #e29393;">Ýttu á hlutina til að eyða</h2>
+    <button id="saveb">Save</button>
     <script>
         const storedShoppingList = localStorage.getItem("shoppingList");
         const shoppingList = storedShoppingList ? JSON.parse(storedShoppingList) : {
@@ -26,7 +27,6 @@
             ],
             total: 0
         };
-        localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
         window.addEventListener("click", listTotal);
 
         function listTotal() {
@@ -79,7 +79,10 @@
 
             listTotal(); 
         });
-
+        const saveButton = document.querySelector("#saveb");
+        saveButton.addEventListener("click", () => {
+            localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+        });
         listTotal();
     </script>
 </body>
